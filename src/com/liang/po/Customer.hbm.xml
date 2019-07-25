@@ -17,6 +17,13 @@
         <property name="cust_name" length="32" column="cust_name"/>
         <property name="cust_phone" length="64" column="cust_phone"/>
         <property name="cust_source" length="32" column="cust_source"/>
+        <!--属性名-->
+        <set name="linkMen">
+            <!--多的一方的外键-->
+            <key column="lkm_cust_id"/>
+            <!--多的类的全路径-->
+            <one-to-many class="com.liang.po.LinkMan"/>
+        </set>
 
     </class>
 </hibernate-mapping>

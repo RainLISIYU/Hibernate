@@ -1,5 +1,7 @@
 package com.liang.po;
 
+import java.util.*;
+
 public class Customer {
      private Long cust_id;
      private String cust_name;
@@ -8,6 +10,15 @@ public class Customer {
      private String cust_level;
      private String cust_phone;
      private String cust_mobile;
+     private Set<LinkMan>  linkMen = new HashSet<>();
+
+    public Set<LinkMan> getLinkMen() {
+        return linkMen;
+    }
+
+    public void setLinkMen(Set<LinkMan> linkMen) {
+        this.linkMen = linkMen;
+    }
 
     @Override
     public String toString() {
