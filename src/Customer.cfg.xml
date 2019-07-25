@@ -19,6 +19,6 @@
         <!--格式化SQL-->
         <property name="hibernate.format_sql">true</property>
 
-        <mapping resource="com/liang/test1/Customer.hbm.xml"/>
+        <mapping resource="com/liang/po/Customer.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

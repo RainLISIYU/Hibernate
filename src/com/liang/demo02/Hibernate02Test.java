@@ -1,7 +1,7 @@
 package com.liang.demo02;
 
 
-import com.liang.test1.Customer;
+import com.liang.po.Customer;
 import com.liang.utils.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

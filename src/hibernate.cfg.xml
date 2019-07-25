@@ -35,6 +35,6 @@
         <!--配置session绑定本地线程-->
         <property name="hibernate.current_session_context_class">thread</property>
 
-        <mapping resource="com/liang/test1/Customer.hbm.xml"/>
+        <mapping resource="com/liang/po/Customer.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
