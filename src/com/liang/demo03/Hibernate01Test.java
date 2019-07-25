@@ -47,4 +47,25 @@ public class Hibernate01Test {
 
     }
 
+    @Test
+    public void Test2(){
+
+        Session session = HibernateUtils.getCurrentSession("LinkMan.cfg.xml");
+        Transaction transaction = session.beginTransaction();
+
+        Customer customer = new Customer();
+        customer.setCust_name("连杰");
+
+        LinkMan linkMan = new LinkMan();
+        linkMan.setLkmName("成龙");
+
+        customer.getLinkMen().add(linkMan);
+        linkMan.setCustomer(customer);
+
+        session.save(customer);
+
+        transaction.commit();
+
+    }
+
 }

@@ -22,6 +22,6 @@
             class:一的类的全路径
             column:多的外键名
         -->
-        <many-to-one name="customer" class="com.liang.po.Customer" column="lkm_cust_id"/>
+        <many-to-one name="customer" class="com.liang.po.Customer" cascade="save-update" column="lkm_cust_id"/>
     </class>
 </hibernate-mapping>
