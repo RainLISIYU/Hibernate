@@ -8,10 +8,14 @@ import org.hibernate.Transaction;
 import org.junit.Test;
 
 /**
+ * 一对多测试
  * @author 梁思禹
  */
 public class Hibernate01Test {
 
+    /**
+     * 未设置级联方式
+     */
     @Test
     public void Test1(){
 
@@ -47,6 +51,9 @@ public class Hibernate01Test {
 
     }
 
+    /**
+     *设置了级联方式cascade="save-update"
+     */
     @Test
     public void Test2(){
 
@@ -65,6 +72,54 @@ public class Hibernate01Test {
         session.save(customer);
 
         transaction.commit();
+
+    }
+    /**
+     * 测试对象导航
+     */
+    @Test
+    public void test3(){
+
+        Session currentSession = HibernateUtils.getCurrentSession("LinkMan.cfg.xml");
+        Transaction transaction = currentSession.beginTransaction();
+
+        Customer customer = new Customer();
+        customer.setCust_name("张龙");
+
+        LinkMan linkMan1 = new LinkMan();
+        linkMan1.setLkmName("赵虎");
+        LinkMan linkMan2 = new LinkMan();
+        linkMan2.setLkmName("包龙");
+
+        linkMan1.setCustomer(customer);
+        customer.getLinkMen().add(linkMan2);
+
+//        储存与LinkMan1有关的所有对象--3个
+        currentSession.save(linkMan1);
+//        储存与customer有关的所有对象--2个
+        /*currentSession.save(customer);*/
+
+        transaction.commit();
+    }
+
+    /**
+     * 级联删除
+     */
+    @Test
+    public void test4(){
+        Session session = HibernateUtils.getCurrentSession("LinkMan.cfg.xml");
+        Transaction transaction = session.beginTransaction();
+
+//        未设置只删除客户，联系人外键改为null
+        /*Customer customer = session.get(Customer.class, 1L);*/
+        /*session.delete(customer);*/
+
+//        设置级联删除，Customer配置中设置cascade="delete"
+        Customer customer = session.get(Customer.class, 2L);
+        session.delete(customer);
+
+        transaction.commit();
+
 
     }
 
