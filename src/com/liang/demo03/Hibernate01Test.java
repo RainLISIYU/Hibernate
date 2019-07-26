@@ -120,7 +120,23 @@ public class Hibernate01Test {
 
         transaction.commit();
 
+    }
 
+    /**
+     * 测试inverse
+     */
+    @Test
+    public void test5(){
+        Session session = HibernateUtils.getCurrentSession("LinkMan.cfg.xml");
+        Transaction transaction = session.beginTransaction();
+
+        Customer customer = session.get(Customer.class, 2L);
+        LinkMan linkMan = session.get(LinkMan.class, 2L);
+
+        /*customer.getLinkMen().add(linkMan);*/
+        linkMan.setCustomer(customer);
+
+        transaction.commit();
     }
 
 }

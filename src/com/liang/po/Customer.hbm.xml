@@ -18,7 +18,11 @@
         <property name="cust_phone" length="64" column="cust_phone"/>
         <property name="cust_source" length="32" column="cust_source"/>
         <!--属性名-->
-        <set name="linkMen" cascade="save-update,delete">
+        <!--
+            cascade:级联方式
+            inverse:一方是否控制外键 true为不控制
+        -->
+        <set name="linkMen" cascade="save-update,delete" inverse="true">
             <!--多的一方的外键-->
             <key column="lkm_cust_id"/>
             <!--多的类的全路径-->
