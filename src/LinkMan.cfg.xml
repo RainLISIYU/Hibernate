@@ -6,7 +6,7 @@
   <session-factory>
     <!--数据库基本配置-->
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Hibernate3</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate3</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">lsy19980104</property>
     <!--hibernate方言-->
