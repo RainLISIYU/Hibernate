@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <!--数据库基本配置-->
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate4</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">lsy19980104</property>
+    <!--hibernate方言-->
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+    <!--可选配置-->
+    <!--打印SQL-->
+    <property name="hibernate.show_sql">true</property>
+    <!--格式化SQL-->
+    <property name="hibernate.format_sql">true</property>
+    <!--自动建表-->
+    <!--none : 不自动创建-->
+    <!--create : 有表，删后重创，没有新建-->
+    <!--create-drop : 有表，删后重创，没有新建，用后删除-->
+    <!--update : 有表则用，否则新建，会更新表结构-->
+    <!--validate : 不新建表，只使用原表-->
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <!--配置事务隔离级别-->
+    <!--1&#45;&#45;read uncommited-->
+    <!--2&#45;&#45;read commited-->
+    <!--3&#45;&#45;repeated read-->
+    <!--4&#45;&#45;serializable-->
+    <property name="hibernate.connection.isolation">4</property>
+
+    <!--配置session绑定本地线程-->
+    <property name="hibernate.current_session_context_class">thread</property>
+
+    <mapping resource="com/liang/po/Role.hbm.xml"/>
+    <mapping resource="com/liang/po/User.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

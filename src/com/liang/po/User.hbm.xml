@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.liang.po.User" table="sys_user">
+        <!--主键-->
+        <id name="user_id" column="user_id">
+            <generator class="native"/>
+        </id>
+        <!--普通属性和字段的映射-->
+        <property name="user_name" column="user_name"/>
+        <property name="user_code" column="user_code"/>
+        <property name="user_password" column="user_password"/>
+        <property name="user_state" column="user_state"/>
+
+        <!--table&#45;&#45;中间表-->
+        <set name="roles" table="sys_user_role" cascade="save-update, delete">
+            <!--
+                column&#45;&#45;当前对象在中间表中的外键名称
+            -->
+            <key column="user_id"/>
+            <!--
+                many-to-many : class&#45;&#45;对象类型的全路径
+                               column&#45;&#45;对方在中间表中的外键名称
+            -->
+            <many-to-many class="com.liang.po.Role" column="role_id"/>
+        </set>
+
+    </class>
+</hibernate-mapping>
