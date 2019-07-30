@@ -30,6 +30,7 @@ public class Customer {
                 ", cust_level='" + cust_level + '\'' +
                 ", cust_phone='" + cust_phone + '\'' +
                 ", cust_mobile='" + cust_mobile + '\'' +
+                ", linkMen=" + linkMen +
                 '}';
     }
 

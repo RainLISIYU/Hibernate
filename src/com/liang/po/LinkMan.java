@@ -16,6 +16,21 @@ public class LinkMan {
     private String lkmMemo;
     private Customer customer;
 
+    @Override
+    public String toString() {
+        return "LinkMan{" +
+                "lkmId=" + lkmId +
+                ", lkmName='" + lkmName + '\'' +
+                ", lkmGender='" + lkmGender + '\'' +
+                ", lkmPhone='" + lkmPhone + '\'' +
+                ", lkmMobile='" + lkmMobile + '\'' +
+                ", lkmEmail='" + lkmEmail + '\'' +
+                ", lkmQq='" + lkmQq + '\'' +
+                ", lkmPosition='" + lkmPosition + '\'' +
+                ", lkmMemo='" + lkmMemo + '\'' +
+                '}';
+    }
+
     public long getLkmId() {
         return lkmId;
     }
