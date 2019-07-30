@@ -21,8 +21,11 @@
         <!--
             cascade:级联方式
             inverse:一方是否控制外键 true为不控制
+            fetch  :抓取策略  select 普通查询语句 join 迫切外连接 subselect 发送一条子查询
+            lazy   :延迟加载  true  采用延迟  false 不采用延迟加载  extra   极其懒惰
         -->
-        <set name="linkMen" cascade="save-update,delete" inverse="true">
+
+        <set name="linkMen" cascade="save-update,delete" inverse="true" fetch="select" lazy="true">
             <!--多的一方的外键-->
             <key column="lkm_cust_id"/>
             <!--多的类的全路径-->
