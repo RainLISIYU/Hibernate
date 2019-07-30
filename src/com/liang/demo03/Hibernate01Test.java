@@ -69,6 +69,7 @@ public class Hibernate01Test {
         customer.getLinkMen().add(linkMan);
         linkMan.setCustomer(customer);
 
+
         session.save(customer);
 
         transaction.commit();
